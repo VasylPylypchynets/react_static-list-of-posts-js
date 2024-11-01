@@ -9,12 +9,10 @@ function getUserById(userId) {
   return usersFromServer.find(user => user.id === userId) || null;
 }
 
-// Helper function to get comments by postId
 function getCommentsByPostId(postId) {
   return commentsFromServer.filter(comment => comment.postId === postId);
 }
 
-// Process posts, attaching user and comments to each post
 export const posts = postsFromServer.map(post => ({
   ...post,
   user: getUserById(post.userId),
